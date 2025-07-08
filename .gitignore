@@ -101,11 +101,11 @@ k8s/*.local.yaml
 
 # Docs, Mockups, and Generated Files
 docs/*.pdf
-docs/*.png
-docs/*.svg
-docs/*.jpg
-docs/*.jpeg
-docs/*.gif
+# docs/*.png
+# docs/*.svg
+# docs/*.jpg
+# docs/*.jpeg
+# docs/*.gif
 
 # Node/npm (if any JS is used for frontend/docs)
 node_modules/
