@@ -131,8 +131,8 @@ docker build -f docker/Dockerfile.fastapi -t modbotai-fastapi .
 docker build -f docker/Dockerfile.django -t modbotai-django .
 ```
 
-# Launch stack (see docker-compose.yml or use kubectl for K8s)
-# Example: docker-compose up --build
+### Launch stack (see docker-compose.yml or use kubectl for K8s)
+Example: docker-compose up --build
 Or deploy on Kubernetes using the manifests in k8s/.
 
 ### 4. Run Database Migrations
