@@ -1,6 +1,6 @@
 # ModBotAI – Reddit Comment Moderation & Semantic Search
 
-![Concept Mockup](docs/concept_mockup.png)
+![Concept Mockup](./docs/concept_mockup.png)
 
 ## Overview
 
@@ -26,7 +26,7 @@
 
 ## Architecture
 
-![System ERD](docs/ModBotAI_ERD.png)
+![System ERD](./docs/ModBotAI_ERD.png)
 
 **Data Flow and System Design:**
 - **Ingestion Pipeline:**  
@@ -98,7 +98,7 @@ The ModBotAI backend uses a normalized relational schema for scalable moderation
 - **User:** Stores both comment authors and moderators.
 - **ModerationLog:** Every moderation action (approve/delete) is logged with moderator ID and timestamp, linked to the relevant comment and user.
 
-![System ERD](docs/ModBotAI_ERD.png)
+![System ERD](./docs/ModBotAI_ERD.png)
 
 All endpoints and admin actions map directly to these data entities, ensuring full traceability and auditability of moderation activity.
 
@@ -133,6 +133,7 @@ docker build -f docker/Dockerfile.django -t modbotai-django .
 
 ### Launch stack (see docker-compose.yml or use kubectl for K8s)
 Example: docker-compose up --build
+
 Or deploy on Kubernetes using the manifests in k8s/.
 
 ### 4. Run Database Migrations
