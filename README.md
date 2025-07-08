@@ -174,8 +174,12 @@ CI/CD via GitHub Actions runs on every push (lint, test, build, deploy).
 - Kubernetes: Deployments/StatefulSets in k8s/
 - CI/CD: Automated via GitHub Actions
 
+---
+
 ### Contributing
 Pull requests welcome! Please see docs for architecture and contribution guidelines.
+
+---
 
 ### References
 - Project Plan
@@ -185,9 +189,13 @@ Pull requests welcome! Please see docs for architecture and contribution guideli
 - Sentence Transformers
 - PRAW (Reddit API)
 
+---
+
 ## License
 
 This project is licensed under the [MIT License](./LICENSE).
+
+---
 
 ### ModBotAI — Scalable, modular content moderation for the modern web.
 For questions or issues, please open a GitHub Issue or contact the maintainers.
