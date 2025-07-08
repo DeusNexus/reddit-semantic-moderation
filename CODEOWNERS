@@ -1,0 +1,8 @@
+# Ownership for the whole repo
+*               @DeusNexus
+
+# For Django code
+django_app/     @DeusNexus
+
+# For CI/CD workflows
+.github/        @DeusNexus
