@@ -98,7 +98,7 @@ The ModBotAI backend uses a normalized relational schema for scalable moderation
 - **User:** Stores both comment authors and moderators.
 - **ModerationLog:** Every moderation action (approve/delete) is logged with moderator ID and timestamp, linked to the relevant comment and user.
 
-![System ERD](./docs/ModBotAI_ERD.png)
+![DB ERD](./docs/Database_ERD.png)
 
 All endpoints and admin actions map directly to these data entities, ensuring full traceability and auditability of moderation activity.
 
