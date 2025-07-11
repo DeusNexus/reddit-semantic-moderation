@@ -108,11 +108,13 @@ All endpoints and admin actions map directly to these data entities, ensuring fu
 
 ### Prerequisites
 
-- Python 3.10+
+- Python 3.12+
 - Docker & Docker Compose
 - PostgreSQL 15+ (with pgvector extension)
 - Kubernetes (optional for production)
 - [PRAW](https://praw.readthedocs.io/), [FastAPI](https://fastapi.tiangolo.com/), [Django](https://www.djangoproject.com/), [PyTorch](https://pytorch.org/), [Hugging Face Transformers](https://huggingface.co/docs/transformers), [LangGraph](https://www.langchain.com/langgraph), [SentenceTransformers](https://www.sbert.net/)
+
+
 
 ### 1. Clone the Repository
 
@@ -147,6 +149,35 @@ python manage.py migrate
 - Django: Admin interface at /admin
 - Data Pipeline: Run data_pipeline/praw_ingest.py to start ingestion
 
+## Development Setup (Hybrid venv)
+
+1. **Root dev tools** (formatting, linting, type-checking, pre-commit):
+    ```
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements-dev.txt
+    pre-commit install
+    ```
+
+2. **Per-service dependencies**:
+    ```
+    cd fastapi_app && python3 -m venv .venv && pip install -r requirements.txt
+    cd ../django_app && python3 -m venv .venv && pip install -r requirements.txt
+    cd ../data_pipeline && python3 -m venv .venv && pip install -r requirements.txt
+    ```
+
+3. **Run dev tools**:
+    ```
+    source .venv/bin/activate  # (root)
+    black . && flake8 . && mypy . && pytest && pre-commit run --all-files
+    ```
+
+4. **Run apps**:
+    ```
+    cd fastapi_app && source .venv/bin/activate && uvicorn main:app --reload
+    # ...etc.
+    ```
+
 ### API Endpoints
 
 - `POST /moderate` – Classifies and stores a Reddit comment; logs moderation outcome.
@@ -155,7 +186,6 @@ python manage.py migrate
 - (Admin) All moderator actions (approve, delete) are logged and auditable.
 
 See FastAPI docs for request/response schemas; see Django admin for action logs.
-
 
 ### Testing
 Run tests using pytest:
@@ -173,6 +203,59 @@ CI/CD via GitHub Actions runs on every push (lint, test, build, deploy).
 - Docker: Each microservice has its own Dockerfile
 - Kubernetes: Deployments/StatefulSets in k8s/
 - CI/CD: Automated via GitHub Actions
+
+Certainly! Here’s a **concise, technical markdown section** you can drop right into your `README.md`:
+
+---
+
+## Code Quality, Pre-commit Hooks & CI/CD
+
+ModBotAI enforces consistent code quality and automated testing using **pre-commit hooks** and **GitHub Actions CI/CD**.
+
+### Pre-commit Hooks (Local)
+
+* Automatically run [black](https://github.com/psf/black), [flake8](https://flake8.pycqa.org/), and [mypy](http://mypy-lang.org/) on every commit.
+* **Setup (run once after cloning):**
+
+  ```bash
+  python3 -m venv .venv
+  source .venv/bin/activate
+  pip install -r requirements-dev.txt
+  pre-commit install
+  ```
+* **Manual run on all files:**
+
+  ```bash
+  pre-commit run --all-files
+  ```
+* **If a check fails:**
+  Fix the issues, re-stage changes, and recommit.
+
+### CI/CD (GitHub Actions)
+
+* Every push and pull request triggers the CI pipeline:
+
+  * Runs black (formatting check), flake8 (lint), mypy (type check), and pytest (tests).
+* Failing checks block merges.
+* Results appear in the GitHub "Checks" tab for your commit or PR.
+
+### Developer Workflow
+
+1. Commit:
+   Pre-commit hooks will check formatting, lint, and types.
+2. Push/PR:
+   CI will re-run all checks and tests.
+3. To manually check everything before pushing:
+
+   ```bash
+   pre-commit run --all-files
+   pytest
+   ```
+
+---
+
+**See `.pre-commit-config.yaml` and `.github/workflows/ci-cd.yml` for full configuration details.**
+
 
 ---
 

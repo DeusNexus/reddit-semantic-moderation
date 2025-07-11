@@ -1,0 +1,58 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Git, CI/CD, and editor settings
+.git
+.gitignore
+.github/
+*.swp
+*.swo
+*.idea/
+.vscode/
+*.DS_Store
+
+# Environment files (never copy secrets into Docker image)
+.env
+.env.*
+!*.env.example    # Except example envs, if you want
+
+# OS/Editor generated files
+*.bak
+*.tmp
+*.log
+*.orig
+
+# Test & coverage output
+.coverage
+coverage.xml
+htmlcov/
+pytest_cache/
+tests/__pycache__/
+
+# Docs and media (if not needed in image)
+docs/
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.svg
+
+# Distribution/build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/

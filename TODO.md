@@ -1,9 +1,9 @@
 # TODO – ModBotAI Week 1 Development Sprint
 
 ## Day 1 – Design & Setup
-- [ ] Finalize system architecture diagram (add to docs/)
-- [ ] Initialize GitHub repository & enable Issues/PRs
-- [ ] Create Python virtual environments for all components
+- [X] Finalize system architecture diagram (add to docs/)
+- [X] Initialize GitHub repository & enable Issues/PRs
+- [X] Create Python virtual environments for all components
 - [ ] Scaffold directory structure as per project layout
 - [ ] Set up local PostgreSQL instance (ensure pgvector extension)
 - [ ] Write initial Pydantic schemas: `data_pipeline/schemas.py`
